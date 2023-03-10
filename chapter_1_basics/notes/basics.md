@@ -11,34 +11,34 @@
 前提：有序数组
 
 - 循环执行二分查找
-    1. 获取中间索引 M = Floor( ( L + R ) / 2 )；
+    1. 获取中间索引 `M = Floor( ( L + R ) / 2 )`；
     2. 中间索引的值 A[M] 与待搜索的值 T 进行比较
-        - A[M] == T 表示找到，返回中间索引的值，结束循环
-        - A[M] > T，中间值右侧其他元素都大于 T，去中间索引左侧寻找，设置 R = M - 1
-        - A[M] > T，中间值左侧其他元素都小于 T，去中间索引右侧寻找，设置 L = M + 1
+        - `A[M] == T` 表示找到，返回中间索引的值，结束循环
+        - `A[M] > T`，中间值右侧其他元素都大于 T，去中间索引左侧寻找，设置 `R = M - 1`
+        - `A[M] > T`，中间值左侧其他元素都小于 T，去中间索引右侧寻找，设置 `L = M + 1`
 
 当 L > R时，表示没有找到，循环结束。
-> *更形象的描述请参考：animation/binary_search.html*
+> *更形象的描述请参考：[animation/binary_search.html](https://htmlpreview.github.io/?https://github.com/riverify/java-must-know/blob/main/chapter_1_basics/animation/binary_search.html)*
 
 ### 二分查找代码
 
 ```java
-public static int binarySearch(int[]a,int t){
-        int l=0,r=a.length-1;
-        int m;
+public static int binarySearch(int[] a, int t) {
+    int l = 0, r = a.length - 1;
+    int m;
 
-        while(l<=r){
-        m=(l+r)/2;
-        if(a[m]==t){
-        return m;
-        }else if(a[m]>t){
-        r=m-1;
-        }else if(a[m]<t){
-        l=m+1;
+    while (l <= r) {
+        m = (l + r) / 2;
+        if (a[m] == t) {
+            return m;
+        } else if (a[m] > t) {
+            r = m - 1;
+        } else if (a[m] < t) {
+            l = m + 1;
         }
-        }
-        return-1;
-        }
+    }
+    return -1;
+}
 ```
 
 ### 解决整数溢出问题
@@ -102,7 +102,7 @@ public class IntegerOverflow {
 
 ## 冒泡排序
 
-> *更形象的描述请参考：animation/bubble_sort.html*
+> *更形象的描述请参考：[animation/bubble_sort.html](http://htmlpreview.github.io/?https://github.com/riverify/java-must-know/blob/main/chapter_1_basics/animation/bubble_sort.html)*
 
 ### 冒泡排序思路
 
@@ -150,24 +150,25 @@ public class BubbleSort {
 **bubble代码**：
 
 ```java
-public static void bubble(int[]a){
-        for(int i=0;i<a.length-1;i++){
-        boolean isSwapped=false;   // 第二步优化 是否发生了交换
-        for(int j=0;j<a.length-1-i;j++){    // 第一步优化 j < a.length - 1 ==> j < a.length - 1 - i
-        if(a[j]>a[j+1]){
-        int temp=a[j];
-        a[j]=a[j+1];
-        a[j+1]=temp;
-        isSwapped=true;
-        }
+public static void bubble(int[] a) {
+    for (int i = 0; i < a.length - 1; i++) {
+        boolean isSwapped = false;   // 第二步优化 是否发生了交换
+        for (int j = 0; j < a.length - 1 - i; j++) {    // 第一步优化 j < a.length - 1 ==> j < a.length - 1 - i
+            System.out.println("发生比较");
+            if (a[j] > a[j + 1]) {
+                int temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+                isSwapped = true;
+            }
         }
         // 若没有发生交换，直接退出外层循环，结束排序
-        if(!isSwapped){
-        break;
+        if (!isSwapped) {
+            break;
         }
-        System.out.println("第"+(i+1)+"轮："+Arrays.toString(a));
-        }
-        }
+        System.out.println("第" + (i + 1) + "轮：" + Arrays.toString(a));
+    }
+}
 ```
 
 但这仍有优化空间，目前为止，冒泡排序的思路都是每次外层循环仅仅将一个数据“沉”入最后，即使有些时候会碰巧满足多个数据也正确地沉到了合适的地方，
@@ -178,50 +179,51 @@ public static void bubble(int[]a){
 **bubble2代码**：
 
 ```java
-public static void bubble2(int[]a){
-        int n=a.length-1;   // 内部第一次循环需要完全循环
-        for(int i=0;i<a.length-1;i++){
-        int last=0;   // 最后一次发生交换的索引位置
-        for(int j=0;j<n; j++){
-        if(a[j]>a[j+1]){
-        int temp=a[j];
-        a[j]=a[j+1];
-        a[j+1]=temp;
-        last=j;   // 每次只要if判断之后，说明发生了交换，更新这个last
+public static void bubble2(int[] a) {
+    int n = a.length - 1;   // 内部第一次循环需要完全循环
+    for (int i = 0; i < a.length - 1; i++) {
+        int last = 0;   // 最后一次发生交换的索引位置
+        for (int j = 0; j < n; j++) {
+            System.out.println("发生比较");
+            if (a[j] > a[j + 1]) {
+                int temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+                last = j;   // 每次只要if判断之后，说明发生了交换，更新这个last
+            }
         }
+        n = last;   // 一轮循环结束，last之后的数已经确保是排序的了，故下次循环的条件为截至到last索引的位置
+        if (n == 0) {   // 若没有发生交换，直接退出外层循环，结束排序
+            break;
         }
-        n=last;   // 一轮循环结束，last之后的数已经确保是排序的了，故下次循环的条件为截至到last索引的位置
-        if(n==0){   // 若没有发生交换，直接退出外层循环，结束排序
-        break;
-        }
-        System.out.println("第"+(i+1)+"轮："+Arrays.toString(a));
-        }
-        }
+        System.out.println("第" + (i + 1) + "轮：" + Arrays.toString(a));
+    }
+}
 ```
 
 对此进一步优化之后，**代码最终实现如下**：
 
 ```java
-public static void bubble_final(int[]a){
-        int n=a.length-1;
-        while(n>0){
-        int last=0;
-        for(int j=0;j<n; j++){
-        if(a[j]>a[j+1]){
-        int temp=a[j];
-        a[j]=a[j+1];
-        a[j+1]=temp;
-        last=j; // update last swapped index
+public static void bubble_final(int[] a) {
+    int n = a.length - 1;
+    while (n > 0) {
+        int last = 0;
+        for (int j = 0; j < n; j++) {
+            if (a[j] > a[j + 1]) {
+                int temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+                last = j; // update last swapped index
+            }
         }
-        }
-        n=last;
-        }
-        }
+        n = last;
+    }
+}
 ```
 
 ## 选择排序
 
-> *更形象的描述请参考：animation/selection_sort.html*
+> *更形象的描述请参考：[animation/selection_sort.html](https://htmlpreview.github.io/?https://github.com/riverify/java-must-know/blob/main/chapter_1_basics/animation/insertion_sort.html)*
 
 ### 选择排序思路
 
@@ -233,42 +235,44 @@ public static void bubble_final(int[]a){
 ### 选择排序代码
 
 ```java
-public static void selection(int[]a){
-        for(int i=0;i<a.length-1;i++){
+public static void selection(int[] a) {
+    for (int i = 0; i < a.length - 1; i++) {
         // s代表最小的元素索引
-        int s=i;
-        for(int j=s+1;j<a.length;j++){
-        if(a[s]>a[j]){
-        s=j;
+        int s = i;
+        for (int j = s + 1; j < a.length; j++) {
+            if (a[s] > a[j]) {
+                s = j;
+            }
         }
+        if (s != i) {
+            int temp = a[i];
+            a[i] = a[s];
+            a[s] = temp;
         }
-        if(s!=i){
-        int temp=a[i];
-        a[i]=a[s];
-        a[s]=temp;
-        }
-        System.out.println("第"+(i+1)+"轮："+Arrays.toString(a));
-        }
-        }
+        System.out.println("第" + (i + 1) + "轮：" + Arrays.toString(a));
+    }
+}
 ```
 
 以上代码为了减少交换次数，每一轮都先找出最小的索引，在每一轮可以先找最小的索引，在每一轮循环结束后再交换元素。
 
 ### 与冒泡排序的比较
 
-1. 二者平均复杂度都是O(n^2)
+1. 二者平均复杂度都是`O(n^2)`
 2. 选择排序一般快于冒泡排序，因为其交换次数少
 3. 但如果集合有序度高，冒泡排序需要被优先考虑
 4. 冒泡排序属于稳定排序算法，而选择排序属于不稳定排序
 
 ## 插入排序
 
+> *更形象的描述请参考：[insertion_sort.html](https://htmlpreview.github.io/?https://github.com/riverify/java-must-know/blob/main/chapter_1_basics/animation/insertion_sort.html)*
+
 ### 插入排序的基本思想
 
-插入排序的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，通常采用in-place排序（即只需用到O(
-1)的额外空间的排序），因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。
+插入排序的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，通常采用in-place排序
+（即只需用到`O(1)`的额外空间的排序），因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。
 
-例如我们有一组数字：｛5，2，4，6，1，3｝，我们要将这组数字从小到大进行排列。
+例如我们有一组数字：`｛5，2，4，6，1，3｝`，我们要将这组数字从小到大进行排列。
 我们从第二个数字开始，将其认为是新增加的数字，这样第二个数字只需与其左边的第一个数字比较后排好序；在第三个数字，认为前两个已经排好序的数字为手里整理好的牌，那么只需将第三个数字与前两个数字比较即可；以此类推，直到最后一个数字与前面的所有数字比较结束，插入排序完成。
 
 以升序为例
@@ -278,7 +282,7 @@ public static void selection(int[]a){
 
 ### 插入排序代码实现
 
-```elixir
+```java
 public class InsertSort {
     public static void main(String[] args) {
         int[] a = {9, 3, 7, 2, 5, 6, 8, 1, 4};
@@ -307,20 +311,30 @@ public class InsertSort {
 
 ### 与选择排序比较
 
-1. 二者平均时间复杂度都是O(n^2)
+1. 二者平均时间复杂度都是`O(n^2)`
 2. 大部分情况下，插入都略优于选择和冒泡排序
-3. 有序集合插入排序的时间复杂度为O(n)
+3. 有序集合插入排序的时间复杂度为`O(n)`
 4. 插入属于稳定排序算法，而选择属于不稳定排序
 
 ### 插入排序的缺点
 
-希尔排序是插入排序的一种，解决了插入排序中的一些缺点，比如插入排序在每次往前插入时只能将数据移动一位，效率比较低。当遇到较大数据在数组的前方时，需要给这些数移动较多的次数，希尔排序应运而生。
+希尔排序是插入排序的一种，解决了插入排序中的一些缺点，比如插入排序在每次往前插入时只能将数据移动一位，效率比较低。当遇到较大数据在数组的前方时，
+需要给这些数移动较多的次数，希尔排序应运而生。
+
+> *请参考：[animation/shell_sort.html](https://htmlpreview.github.io/?https://github.com/riverify/java-must-know/blob/main/chapter_1_basics/animation/shell_sort.html)*
+
+**参考资料**
+
+* https://en.wikipedia.org/wiki/Shellsort
+
 
 ## 快速排序
 
+> *更形象的描述请参考：[animation/quick_sort.html](https://htmlpreview.github.io/?https://github.com/riverify/java-must-know/blob/main/chapter_1_basics/animation/quick_sort.html)*
+
 ### 快速排序基本思想
 
-1. 每轮排序选择一个基准点（pivot）进行分区；
+1. 每轮排序选择一个基准点`（pivot）`进行分区；
     1. 让小于基准点的元素进入一个分区，大于基准点的元素进入另一个分区；
     2. 当分区完成时，基准点元素的位置就是其最终位置；
 2. 在分区内重复以上过程，直至子分区元素个数少于等于1，这体现的是分治的思想。
@@ -329,17 +343,17 @@ public class InsertSort {
 
 1. 单边循环快排（lomuto洛缪托分区方案）
     1. 选择最右元素作为基准点元素
-    2. j 指针负责找到比基准点小的元素，一旦找到了则与 i 进行交换
+    2. j 指针负责找到比基准点小的元素，一旦找到了则与 `i` 进行交换
     3. i 指针维护小于基准点元素的边界，也是每次交换的目标索引
-    4. 最后基准点与 i 交换，i 即为分区位置
+    4. 最后基准点与 `i` 交换，`i` 即为分区位置
 2. 双边循环快排（并不完全等价于hoare霍尔分区方案）
     1. 选择最左元素作为基准点元素
-    2. j 指针负责从右向左找比基准点小的元素，i 指针负责从左向右找比基准点大的元素，一旦找到二者交换，直至 i，j 相交
-    3. 最后基准点与 i（此时 i 与 j 相等）交换，i 即为分区位置
+    2. j 指针负责从右向左找比基准点小的元素，i 指针负责从左向右找比基准点大的元素，一旦找到二者交换，直至 `i`，`j` 相交
+    3. 最后基准点与 `i`（此时 `i` 与 `j` 相等）交换，`i` 即为分区位置
 
 ### 单边循环快排的实现代码
 
-```elixir
+```java
  public class QuickSort {
     public static void main(String[] args) {
         int[] a = {9, 3, 7, 2, 5, 6, 8, 1, 4};
@@ -385,3 +399,4 @@ public class InsertSort {
     }
 }
 ```
+
