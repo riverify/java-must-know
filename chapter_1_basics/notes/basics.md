@@ -17,7 +17,7 @@
         - `A[M] > T`，中间值右侧其他元素都大于 T，去中间索引左侧寻找，设置 `R = M - 1`
         - `A[M] > T`，中间值左侧其他元素都小于 T，去中间索引右侧寻找，设置 `L = M + 1`
 
-当 L > R时，表示没有找到，循环结束。
+当 `L > R` 时，表示没有找到，循环结束。
 > *更形象的描述请参考：[animation/binary_search.html](https://htmlpreview.github.io/?https://github.com/riverify/java-must-know/blob/main/chapter_1_basics/animation/binary_search.html)*
 
 ### 二分查找代码
@@ -44,7 +44,7 @@ public static int binarySearch(int[] a, int t) {
 ### 解决整数溢出问题
 
 当 `L + R` 大于整数能存储的最大值的时候，便产生了整数溢出问题。
-对于此问题，主要问题出现在( L + R ) / 2，我们可以对此表达式在数学层面做出改进，如：
+对于此问题，主要问题出现在`( L + R ) / 2`，我们可以对此表达式在数学层面做出改进，如：
 
 `( L + R ) / 2` 
 
