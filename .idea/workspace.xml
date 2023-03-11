@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17652ce0-9765-4029-913d-8abef195669a" name="Changes" comment="" />
+    <list default="true" id="17652ce0-9765-4029-913d-8abef195669a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/chapter_1_basics/src/com/riverify/list/FailFastVsFailSafe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter_1_basics/notes/basics.md" beforeDir="false" afterPath="$PROJECT_DIR$/chapter_1_basics/notes/basics.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +45,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "Errors",
@@ -56,11 +60,12 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\src\com\riverify\list" />
+      <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics" />
       <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\animation" />
       <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BinarySearch">
+  <component name="RunManager" selected="Application.FailFastVsFailSafe">
     <configuration name="BinarySearch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.riverify.binary_search.BinarySearch" />
       <module name="chapter_1_basics" />
@@ -74,12 +79,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InsertSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.riverify.sort.insert_sort.InsertSort" />
+    <configuration name="FailFastVsFailSafe (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.riverify.list.FailFastVsFailSafe" />
       <module name="chapter_1_basics" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.riverify.sort.insert_sort.*" />
+          <option name="PATTERN" value="com.riverify.list.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FailFastVsFailSafe" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.riverify.list.FailFastVsFailSafe" />
+      <module name="chapter_1_basics" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.riverify.list.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -89,19 +107,6 @@
     </configuration>
     <configuration name="QuickSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.riverify.sort.quick_sort.QuickSort" />
-      <module name="chapter_1_basics" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.riverify.sort.quick_sort.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SelectionSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.riverify.sort.selection_sort.SelectionSort" />
       <module name="chapter_1_basics" />
       <extension name="coverage">
         <pattern>
@@ -141,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FailFastVsFailSafe" />
+        <item itemvalue="Application.FailFastVsFailSafe (1)" />
         <item itemvalue="Application.BinarySearch" />
         <item itemvalue="Application.TestArrayList" />
         <item itemvalue="Application.QuickSort" />
-        <item itemvalue="Application.InsertSort" />
-        <item itemvalue="Application.SelectionSort" />
       </list>
     </recent_temporary>
   </component>
@@ -163,7 +168,7 @@
       <workItem from="1678456350725" duration="6698000" />
       <workItem from="1678502896142" duration="3171000" />
       <workItem from="1678511431623" duration="602000" />
-      <workItem from="1678512286674" duration="444000" />
+      <workItem from="1678512286674" duration="7971000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore">
       <created>1678416753728</created>
@@ -263,7 +268,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678512683397</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="修复部分错误，增加ArrayList内容">
+      <created>1678512863012</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1678512863012</updated>
+    </task>
+    <task id="LOCAL-00016" summary="修复部分错误，增加ArrayList内容">
+      <created>1678512938959</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1678512938959</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,6 +302,22 @@
     <MESSAGE value="修复部分错误，增加ArrayList内容" />
     <option name="LAST_COMMIT_MESSAGE" value="修复部分错误，增加ArrayList内容" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/chapter_1_basics/src/com/riverify/list/FailFastVsFailSafe.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/chapter_1_basics/src/com/riverify/list/FailFastVsFailSafe.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

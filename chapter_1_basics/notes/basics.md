@@ -465,5 +465,155 @@ public static int paratition2(int[] a, int l, int h) {
 4. `add(Object o)` 首次扩容为 10，再次扩容为上次容量的 1.5 倍，通过原本的容量增加一个原本容量的右移一位实现
 5. `addAll(Collection c)` 没有元素时，扩容为 `Math.max(10, 实际元素个数)`，有元素时为 `Math.max(原容量 1.5 倍, 实际元素个数)`
 
-### Fail-Fast 与 Fail-Safe
+### Fail-Fast 与 Fail-Safe 演示
+* `ArrayList` 是 `fail-fast` 的典型代表，遍历的同时不能修改，尽快失败
+```java
+private static void failFast() {
+    ArrayList<Student> list = new ArrayList<>();
+    list.add(new Student("A"));
+    list.add(new Student("B"));
+    list.add(new Student("C"));
+    list.add(new Student("D"));
+    for (Student student : list) {
+        System.out.println(student);
+    }
+    System.out.println(list);
+}
+```
+> 当遍历list合集的时候，假设遍历到`student.name.equals("B")`时，在另一个线程对该集合执行`add(new Student("E"))`操作，程序便会发生异常:
+```
+Student{name='A'}
+Student{name='B'}
+Exception in thread "main" java.util.ConcurrentModificationException
+	at java.base/java.util.ArrayList$Itr.checkForComodification(ArrayList.java:1013)
+	at java.base/java.util.ArrayList$Itr.next(ArrayList.java:967)
+	at com.riverify.list.FailFastVsFailSafe.failFast(FailFastVsFailSafe.java:16)
+	at com.riverify.list.FailFastVsFailSafe.main(FailFastVsFailSafe.java:50)
+```
 
+* `CopyOnWriteArrayList` 是 `fail-safe` 的典型代表，遍历的同时可以修改，原理是读写分离
+```java
+private static void failSafe() {
+    CopyOnWriteArrayList<Student> list = new CopyOnWriteArrayList<>();
+    list.add(new Student("A"));
+    list.add(new Student("B"));
+    list.add(new Student("C"));
+    list.add(new Student("D"));
+    for (Student student : list) {
+        System.out.println(student);
+    }
+    System.out.println(list);
+}
+```
+> 需要注意的是，这会失去一致性，遍历的结果为修改前的结果
+```
+Student{name='A'}
+Student{name='B'}
+Student{name='C'}
+Student{name='D'}
+[Student{name='A'}, Student{name='B'}, Student{name='C'}, Student{name='D'}, Student{name='E'}]
+```
+
+### fail-fast 源码
+
+> JDK version: 17
+
+在`ArrayList`内部，首先需要知道的是`modCount`成员变量，它是从父类`AbstractList`中继承而来，初始值为`0`，负责如实记录整个`ArrayList`被修改的次数。
+```java
+protected transient int modCount = 0;
+```
+每次对集合长度的改变（如`add()`），都会调用`updateSizeAndModCount(int sizeChange)`这个方法，这个方法负责更新`modCount`。
+```java
+public boolean add(E e) {
+    modCount++;
+    add(e, elementData, size);
+    return true;
+}
+```
+
+同时在`ArrayList`内部有一个`Itr`的内部类，该内部类实现了`Iterator`接口，使用增强 for 循环的时候，会在首次循环创建这个`Itr`对象：
+```java
+public Iterator<E> iterator() {
+    return new Itr();
+}
+```
+在`Itr`的内部，也存在一个类似`modCount`的成员变量，它的初始值就等于`modCount`，用于表示当迭代刚刚开始时，集合被修改的次数。
+每次执行迭代器执行`next()`方法的时候，都会先调用`checkForComodification()`方法。
+```java
+private class Itr implements Iterator<E> {
+    int cursor;       // index of next element to return
+    int lastRet = -1; // index of last element returned; -1 if no such
+    int expectedModCount = modCount;
+    
+    ...
+    
+    public E next() {
+        checkForComodification();
+        int i = cursor;
+        if (i >= size)
+            throw new NoSuchElementException();
+        Object[] elementData = ArrayList.this.elementData;
+        if (i >= elementData.length)
+            throw new ConcurrentModificationException();
+        cursor = i + 1;
+        return (E) elementData[lastRet = i];
+    }
+    
+    ...
+    
+}
+```
+
+> `checkForComodification()` 方法：
+```java
+final void checkForComodification() {
+    if (modCount != expectedModCount)
+        throw new ConcurrentModificationException();
+}
+```
+此时，w若在迭代过程中，集合被修改了，那么`modCount`一定会发生变化，此时`modCount`和`expectedModCount`就不相等，
+就会抛出`ConcurrentModificationException`异常，实现了`fail-fast`的机制。
+
+### fail-safe 源码
+
+> JDK version: 17
+
+对于`CopyOnWriteArrayList`，它的迭代过程则有所不同，是通过内部类`COWIterator`实现的，首次进入增强 for 循环的时候，会创建一个`COWIterator`对象。
+所携带的参数分别是`getArray()`和 `0`，其中`getArray()`方法返回的是一个`Object[]`型的数组，即当前集合的快照、当前集合的一个副本。
+```java
+public Iterator<E> iterator() {
+    return new COWIterator<E>(getArray(), 0);
+}
+```
+在`COWIterator`内部，无参构造函数中，会将当前集合的快照赋值给`snapshot`，并将`cursor`初始化为`0`。
+```java
+COWIterator(Object[] es, int initialCursor) {
+    cursor = initialCursor;
+    snapshot = es;
+}
+```
+在`COWIterator`内部，`next()`方法中，会先判断`snapshot`是否为空，若为空，则抛出`NoSuchElementException`异常。
+```java
+public E next() {
+    if (! hasNext())
+        throw new NoSuchElementException();
+    return (E) snapshot[cursor++];
+}
+```
+由此可见，`CopyOnWriteArrayList`的迭代过程是通过遍历`snapshot`来实现的，而`snapshot`是在迭代开始的时候就已经确定了，所以在迭代过程中，
+集合被修改了，也不会影响到`snapshot`，所以也就不会抛出`ConcurrentModificationException`异常，实现了`fail-safe`的机制。
+
+我们可以查看一下修改集合的一个方法`add()`，在`add()`方法中，会调用`getArray()`方法，该方法会返回一个`Object[]`型的数组，即当前集合的快照。
+之后便会通过`Arrays.copyOf()`方法，将`snapshot`数组复制一份，然后将新元素添加到新数组的末尾，最后使用`setArray()`方法，记录新数组。
+```java
+public boolean add(E e) {
+    synchronized (lock) {
+        Object[] es = getArray();
+        int len = es.length;
+        es = Arrays.copyOf(es, len + 1);
+        es[len] = e;
+        setArray(es);
+        return true;
+    }
+}
+```
