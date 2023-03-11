@@ -451,4 +451,19 @@ public static int paratition2(int[] a, int l, int h) {
 - 属于不稳定排序，相同大小元素可能会被打乱顺序
 
 
+## List 集合
+
+### 目标
+- 掌握 ArrayList 的扩容机制
+- 掌握 Iterator 的 fail-fast、fail-safe 机制
+- 能够说清楚 LinkedList 对比 ArrayList 的区别，并重视纠正部分错误的认知
+
+### ArrayList 扩容机制
+1. `ArrayList()` 会使用长度为零的数组
+2. `ArrayList(int initialCapacity)` 会使用指定容量`initialCapacity`的数组
+3. `public ArrayList(Collection<? extends E> c)` 会使用 c 的大小作为数组容量
+4. `add(Object o)` 首次扩容为 10，再次扩容为上次容量的 1.5 倍，通过原本的容量增加一个原本容量的右移一位实现
+5. `addAll(Collection c)` 没有元素时，扩容为 `Math.max(10, 实际元素个数)`，有元素时为 `Math.max(原容量 1.5 倍, 实际元素个数)`
+
+### Fail-Fast 与 Fail-Safe
 
