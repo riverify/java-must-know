@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="17652ce0-9765-4029-913d-8abef195669a" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="wbzfpe9t" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Mnv1u7B5zmIvmw1bndasS2cwQO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "corretto-17",
+    "last_opened_file_path": "C:/Users/rivor/code/java/IdeaProjects/java-must-know/chapter_1_basics",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "Errors",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\src\com\riverify\list" />
+      <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\notes" />
+      <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\src\animation" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\src\com\riverify\list" />
+      <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\animation" />
+      <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.BinarySearch">
+    <configuration name="BinarySearch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.riverify.binary_search.BinarySearch" />
+      <module name="chapter_1_basics" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.riverify.binary_search.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InsertSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.riverify.sort.insert_sort.InsertSort" />
+      <module name="chapter_1_basics" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.riverify.sort.insert_sort.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QuickSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.riverify.sort.quick_sort.QuickSort" />
+      <module name="chapter_1_basics" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.riverify.sort.quick_sort.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SelectionSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.riverify.sort.selection_sort.SelectionSort" />
+      <module name="chapter_1_basics" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.riverify.sort.quick_sort.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestArrayList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.riverify.list.TestArrayList" />
+      <module name="chapter_1_basics" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.riverify.list.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="chapter_1_basics" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="chapter_1_basics" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.BinarySearch" />
+        <item itemvalue="Application.TestArrayList" />
+        <item itemvalue="Application.QuickSort" />
+        <item itemvalue="Application.InsertSort" />
+        <item itemvalue="Application.SelectionSort" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="17652ce0-9765-4029-913d-8abef195669a" name="Changes" comment="" />
+      <created>1678415950653</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678415950653</updated>
+      <workItem from="1678415951768" duration="1174000" />
+      <workItem from="1678417144112" duration="15293000" />
+      <workItem from="1678450366434" duration="5818000" />
+      <workItem from="1678456350725" duration="6698000" />
+      <workItem from="1678502896142" duration="3171000" />
+      <workItem from="1678511431623" duration="602000" />
+      <workItem from="1678512286674" duration="444000" />
+    </task>
+    <task id="LOCAL-00001" summary="gitignore">
+      <created>1678416753728</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678416753728</updated>
+    </task>
+    <task id="LOCAL-00002" summary="gitignore">
+      <created>1678416809001</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678416809001</updated>
+    </task>
+    <task id="LOCAL-00003" summary="二分查找">
+      <created>1678418252892</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678418252892</updated>
+    </task>
+    <task id="LOCAL-00004" summary="二分查找 整数溢出问题">
+      <created>1678420938595</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678420938595</updated>
+    </task>
+    <task id="LOCAL-00005" summary="冒泡排序">
+      <created>1678427350692</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678427350692</updated>
+    </task>
+    <task id="LOCAL-00006" summary="选择排序">
+      <created>1678429760171</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678429760171</updated>
+    </task>
+    <task id="LOCAL-00007" summary="插入排序">
+      <created>1678431776173</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1678431776173</updated>
+    </task>
+    <task id="LOCAL-00008" summary="initial update for github">
+      <created>1678454626919</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678454626919</updated>
+    </task>
+    <task id="LOCAL-00009" summary="更新笔记">
+      <created>1678456177631</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1678456177631</updated>
+    </task>
+    <task id="LOCAL-00010" summary="快速排序">
+      <created>1678462030930</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1678462030930</updated>
+    </task>
+    <task id="LOCAL-00011" summary="快速排序">
+      <created>1678462037875</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1678462037875</updated>
+    </task>
+    <task id="LOCAL-00012" summary="快速排序">
+      <created>1678462145077</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1678462145077</updated>
+    </task>
+    <task id="LOCAL-00013" summary="修复部分错误">
+      <created>1678462180401</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1678462180401</updated>
+    </task>
+    <task id="LOCAL-00014" summary="修复部分错误，增加ArrayList内容">
+      <created>1678512683397</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1678512683397</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="gitignore" />
+    <MESSAGE value="二分查找" />
+    <MESSAGE value="二分查找 整数溢出问题" />
+    <MESSAGE value="冒泡排序" />
+    <MESSAGE value="选择排序" />
+    <MESSAGE value="插入排序" />
+    <MESSAGE value="initial update for github" />
+    <MESSAGE value="更新笔记" />
+    <MESSAGE value="快速排序" />
+    <MESSAGE value="修复部分错误" />
+    <MESSAGE value="修复部分错误，增加ArrayList内容" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复部分错误，增加ArrayList内容" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
