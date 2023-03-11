@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17652ce0-9765-4029-913d-8abef195669a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +167,7 @@
       <workItem from="1678456350725" duration="6698000" />
       <workItem from="1678502896142" duration="3171000" />
       <workItem from="1678511431623" duration="602000" />
-      <workItem from="1678512286674" duration="8138000" />
+      <workItem from="1678512286674" duration="8555000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore">
       <created>1678416753728</created>
@@ -287,7 +288,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678520409069</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="create README.md">
+      <created>1678520541494</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1678520541496</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +314,8 @@
     <MESSAGE value="修复部分错误" />
     <MESSAGE value="修复部分错误，增加ArrayList内容" />
     <MESSAGE value="ArrayList &amp; Iterator" />
-    <option name="LAST_COMMIT_MESSAGE" value="ArrayList &amp; Iterator" />
+    <MESSAGE value="create README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="create README.md" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
