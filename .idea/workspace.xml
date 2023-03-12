@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17652ce0-9765-4029-913d-8abef195669a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+    <list default="true" id="17652ce0-9765-4029-913d-8abef195669a" name="Changes" comment="LICENSE">
+      <change afterPath="$PROJECT_DIR$/chapter_1_basics/notes/img/image-20210831084325075.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chapter_1_basics/notes/img/image-20210831084723383.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chapter_1_basics/notes/img/image-20210831084855348.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chapter_1_basics/notes/img/image-20210831085329449.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chapter_1_basics/notes/img/image-20210831085543224.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chapter_1_basics/src/com/riverify/hash/hash-demo.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter_1_basics/notes/basics.md" beforeDir="false" afterPath="$PROJECT_DIR$/chapter_1_basics/notes/basics.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +44,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "corretto-17",
-    "last_opened_file_path": "C:/Users/rivor/code/java/IdeaProjects/java-must-know/chapter_1_basics",
+    "last_opened_file_path": "C:/Users/rivor/code/java/IdeaProjects/java-must-know/chapter_1_basics/notes/img",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -53,18 +59,21 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\notes\img" />
+      <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\src\com\riverify\hash" />
       <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\src\com\riverify\list" />
       <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\notes" />
       <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\src\animation" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\notes" />
       <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\src\com\riverify\list" />
       <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics" />
       <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\animation" />
       <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.FailFastVsFailSafe">
+  <component name="RunManager" selected="Application.BinarySearch">
     <configuration name="BinarySearch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.riverify.binary_search.BinarySearch" />
       <module name="chapter_1_basics" />
@@ -145,9 +154,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BinarySearch" />
         <item itemvalue="Application.FailFastVsFailSafe" />
         <item itemvalue="Application.FailFastVsFailSafe (1)" />
-        <item itemvalue="Application.BinarySearch" />
         <item itemvalue="Application.TestArrayList" />
         <item itemvalue="Application.QuickSort" />
       </list>
@@ -167,7 +176,10 @@
       <workItem from="1678456350725" duration="6698000" />
       <workItem from="1678502896142" duration="3171000" />
       <workItem from="1678511431623" duration="602000" />
-      <workItem from="1678512286674" duration="8555000" />
+      <workItem from="1678512286674" duration="11016000" />
+      <workItem from="1678608664435" duration="154000" />
+      <workItem from="1678620359827" duration="1350000" />
+      <workItem from="1678621733488" duration="5901000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore">
       <created>1678416753728</created>
@@ -295,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678520541496</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="LICENSE">
+      <created>1678520941019</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1678520941019</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,7 +334,8 @@
     <MESSAGE value="修复部分错误，增加ArrayList内容" />
     <MESSAGE value="ArrayList &amp; Iterator" />
     <MESSAGE value="create README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="create README.md" />
+    <MESSAGE value="LICENSE" />
+    <option name="LAST_COMMIT_MESSAGE" value="LICENSE" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
