@@ -4,7 +4,7 @@
 
 > 基础篇要点：算法、数据结构、基础设计模式
 
-## 二分查找
+## 1.二分查找
 
 ### 二分查找思路
 
@@ -106,7 +106,7 @@ public class IntegerOverflow {
 - 偶数二分中间靠左
 - 注意每次更新左右节点的时候会向中心靠拢一位
 
-## 冒泡排序
+## 2.冒泡排序
 
 > *更形象的描述请参考：[animation/bubble_sort.html](http://htmlpreview.github.io/?https://github.com/riverify/java-must-know/blob/main/chapter_1_basics/animation/bubble_sort.html)*
 
@@ -227,7 +227,7 @@ public static void bubble_final(int[] a) {
 }
 ```
 
-## 选择排序
+## 3.选择排序
 
 > *更形象的描述请参考：[animation/selection_sort.html](https://htmlpreview.github.io/?https://github.com/riverify/java-must-know/blob/main/chapter_1_basics/animation/insertion_sort.html)*
 
@@ -269,7 +269,7 @@ public static void selection(int[] a) {
 3. 但如果集合有序度高，冒泡排序需要被优先考虑
 4. 冒泡排序属于稳定排序算法，而选择排序属于不稳定排序
 
-## 插入排序
+## 4.插入排序
 
 > *更形象的描述请参考：[insertion_sort.html](https://htmlpreview.github.io/?https://github.com/riverify/java-must-know/blob/main/chapter_1_basics/animation/insertion_sort.html)*
 
@@ -334,7 +334,7 @@ public class InsertSort {
 * https://en.wikipedia.org/wiki/Shellsort
 
 
-## 快速排序
+## 5.快速排序
 
 > *更形象的描述请参考：[animation/quick_sort.html](https://htmlpreview.github.io/?https://github.com/riverify/java-must-know/blob/main/chapter_1_basics/animation/quick_sort.html)*
 
@@ -451,7 +451,7 @@ public static int paratition2(int[] a, int l, int h) {
 - 属于不稳定排序，相同大小元素可能会被打乱顺序
 
 
-## List 集合
+## 6.List 集合
 
 ### 目标
 - 掌握 ArrayList 的扩容机制
@@ -637,7 +637,7 @@ public boolean add(E e) {
 4. 可以利用 cpu 缓存，局部性原理。
 
 
-## HashMap
+## 7.HashMap
 ### 要求
 
 * 掌握 HashMap 的基本数据结构；
@@ -856,7 +856,7 @@ public class HashMapMutableKey {
 > 参考 hash-demo.jar 中的 why31
 
 
-## 单例模式
+## 8.单例模式
 
 ### 要求
 
