@@ -2,6 +2,8 @@
 
 # 基础篇
 
+@[TOC](目录)
+
 > 基础篇要点：算法、数据结构、基础设计模式
 
 ## 二分查找
@@ -847,13 +849,295 @@ public class HashMapMutableKey {
 **String 对象的 hashCode() 设计**
 
 * 目标是达到较为均匀的散列效果，每个字符串的 hashCode 足够独特；
-* 字符串中的每个字符都可以表现为一个数字，称为 `$S_i$`，其中 i 的范围是 `0 ~ n - 1`；
-* 散列公式为： `$S_0∗31^{(n-1)}+ S_1∗31^{(n-2)}+ … S_i ∗ 31^{(n-1-i)}+ …S_{(n-1)}∗31^0$`；
-* 31 代入公式有较好的散列特性，并且 31 * h 可以被优化为
-    * 即 `$32 ∗h -h $`；
-    * 即 `$2^5  ∗h -h$`；
-    * 即 `$h≪5  -h$`。
+* 字符串中的每个字符都可以表现为一个数字，称为 `S_i`，其中 i 的范围是 `0 ~ n - 1`；
+* 散列公式为： `S_0∗31^{(n-1)}+ S_1∗31^{(n-2)}+ … S_i ∗ 31^{(n-1-i)}+ …S_{(n-1)}∗31^0`；
+* 31 代入公式有较好的散列特性，并且 `31 * h` 可以被优化为
+    * 即 `32 ∗ h - h `；
+    * 即 `2^5  ∗ h - h`；
+    * 即 `h ≪ 5  - h`。
+> 参考 hash-demo.jar 中的 why31
 
 
+## 单例模式
 
+### 要求
+
+* 掌握五种单例模式的实现方式
+* 理解为何 DCL 实现时要使用 volatile 修饰静态变量
+* 了解 jdk 中用到单例的场景
+
+### 饿汉式
+```java
+// 饿汉式单例
+public class Singleton1 implements Serializable {
+    // 私有化静态实例
+    private static final Singleton1 INSTANCE  = new Singleton1();
+
+    // 私有化构造方法
+    private Singleton1() {
+        System.out.println("Singleton1");
+    }
+
+    // 提供静态方法获取实例
+    public static Singleton1 getInstance() {
+        return INSTANCE;
+    }
+
+    public static void otherMethod() {
+        System.out.println("otherMethod");
+    }
+}
+```
+
+测试1：
+```java
+    public static void main(String[] args) throws Exception {
+        Singleton1.otherMethod();
+        System.out.println("<><><><><><><><><><><><><><><><><><><><><><><><><><><><><>");
+        System.out.println(Singleton1.getInstance());
+        System.out.println(Singleton1.getInstance());
+
+        // 反射破坏单例
+        reflection(Singleton1.class);
+    }
+    
+    
+    private static void reflection(Class<?> clazz) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
+        Constructor<?> constructor = clazz.getDeclaredConstructor();
+        constructor.setAccessible(true);
+        System.out.println("反射创建实例:" + constructor.newInstance());
+    }
+```
+输出：
+```
+Singleton1
+otherMethod
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+com.riverify.singleton.Singleton1@4dd8dc3
+com.riverify.singleton.Singleton1@4dd8dc3
+Singleton1
+反射创建实例:com.riverify.singleton.Singleton1@2d98a335
+
+Process finished with exit code 0
+```
+可以看出，饿汉式单例在类加载时就创建了实例，但是反射的使用可以创建全新的实例。
+这可以被阻止，需要在构造方法中加入判断，如果已经创建了实例，就抛出异常。
+```java
+    private Singleton1() {
+        if (INSTANCE != null) {
+            throw new RuntimeException("单例模式禁止反射调用构造方法");
+        }
+        System.out.println("Singleton1");
+    }
+```
+
+测试2：
+```java
+    public static void main(String[] args) throws Exception {
+        Singleton1.otherMethod();
+        System.out.println("<><><><><><><><><><><><><><><><><><><><><><><><><><><><><>");
+        System.out.println(Singleton1.getInstance());
+        System.out.println(Singleton1.getInstance());
+
+        // 反序列化破坏单例
+        serializable(Singleton1.getInstance());
+    }
+
+    private static void serializable(Object instance) throws IOException, ClassNotFoundException {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(bos);
+        oos.writeObject(instance);
+        ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(bos.toByteArray()));
+        System.out.println("反序列化创建实例:" + ois.readObject());
+    }
+```
+输出：
+```
+Singleton1
+otherMethod
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+com.riverify.singleton.Singleton1@4dd8dc3
+com.riverify.singleton.Singleton1@4dd8dc3
+反序列化创建实例:com.riverify.singleton.Singleton1@2530c12****
+```
+可以看出，饿汉式单例在类加载时就创建了实例，但是反序列化的使用可以创建全新的实例。
+这也可以被阻止，需要在类中加入 `readResolve()` 方法。
+```java
+    private Object readResolve() {
+        return INSTANCE;
+    }
+```
+
+测试3：
+```java
+public static void main(String[] args) throws Exception {
+        Singleton1.otherMethod();
+        System.out.println("<><><><><><><><><><><><><><><><><><><><><><><><><><><><><>");
+        System.out.println(Singleton1.getInstance());
+        System.out.println(Singleton1.getInstance());
+        
+        // Unsafe 破坏单例
+        unsafe(Singleton1.class);
+    }
+
+    private static void unsafe(Class<?> clazz) throws InstantiationException {
+        Object o = UnsafeUtils.getUnsafe().allocateInstance(clazz);
+        System.out.println("Unsafe 创建实例:" + o);
+    }
+```
+输出：
+```
+Singleton1
+otherMethod
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+com.riverify.singleton.Singleton1@4dd8dc3
+com.riverify.singleton.Singleton1@4dd8dc3
+Unsafe 创建实例:com.riverify.singleton.Singleton1@10f87f48
+```
+无法阻止`Unsafe`的使用。
+
+
+### 枚举饿汉式
+```java
+public enum Singleton2 {
+    INSTANCE;
+
+    private Singleton2() {
+        System.out.println("private Singleton2()");
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getName() + "@" + Integer.toHexString(hashCode());
+    }
+
+    public static Singleton2 getInstance() {
+        return INSTANCE;
+    }
+
+    public static void otherMethod() {
+        System.out.println("otherMethod()");
+    }
+}
+```
+枚举饿汉式能天然防止反射、反序列化破坏单例。
+
+测试：
+```java
+    public static void main(String[] args) throws Exception {
+        Singleton2.otherMethod();
+        System.out.println("<><><><><><><><><><><><><><><><><><><><><><><><><><><><><>");
+        System.out.println(Singleton2.getInstance());
+        System.out.println(Singleton2.getInstance());
+
+        // 反射破坏单例
+        reflection(Singleton1.class);
+
+    }
+    private static void reflection(Class<?> clazz) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
+        Constructor<?> constructor = clazz.getDeclaredConstructor(String.class, int.class);
+        constructor.setAccessible(true);
+        System.out.println("反射创建实例:" + constructor.newInstance("other", 1));
+    }
+```
+输出：
+```
+private Singleton2()
+otherMethod()
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+com.riverify.singleton.Singleton2@4dd8dc3
+com.riverify.singleton.Singleton2@4dd8dc3
+Exception in thread "main" java.lang.NoSuchMethodException: com.riverify.singleton.Singleton1.<init>(java.lang.String,int)
+	at java.base/java.lang.Class.getConstructor0(Class.java:3585)
+	at java.base/java.lang.Class.getDeclaredConstructor(Class.java:2754)
+	at com.riverify.singleton.TestSingleton.reflection(TestSingleton.java:40)
+	at com.riverify.singleton.TestSingleton.main(TestSingleton.java:17)
+```
+可以看出，反射也无法破坏该单例。
+但是`unsafe`依旧可以。
+
+### 懒汉式
+```java
+public class Singleton3 implements Serializable {
+    private Singleton3() {
+        System.out.println("private Singleton3()");
+    }
+
+    private static Singleton3 INSTANCE = null;
+
+    // Singleton3.class
+    public static Singleton3 getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new Singleton3();
+        }
+        return INSTANCE;
+    }
+
+    public static void otherMethod() {
+        System.out.println("otherMethod()");
+    }
+
+}
+```
+懒汉式单例在第一次使用时才创建实例。但是在多线程环境下，可能会创建多个实例。需要加上同步锁。
+```java
+    public static synchronized Singleton3 getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new Singleton3();
+        }
+        return INSTANCE;
+    }
+```
+但是加上同步锁后，会影响性能。所以需要双重检查锁。
+
+### 双检锁懒汉式
+```java
+public class Singleton4 implements Serializable {
+    private Singleton4() {
+        System.out.println("private Singleton4()");
+    }
+
+    private static volatile Singleton4 INSTANCE = null; // volatile:解决共享变量可见性，有序性
+
+    public static Singleton4 getInstance() {
+        if (INSTANCE == null) {
+            synchronized (Singleton4.class) {
+                if (INSTANCE == null) { // 第二次检查，避免竞争失败的线程重复创建实例
+                    INSTANCE = new Singleton4();
+                }
+            }
+        }
+        return INSTANCE;
+    }
+
+    public static void otherMethod() {
+        System.out.println("otherMethod()");
+    }
+}
+```
+为何必须加 volatile：
+* `INSTANCE = new Singleton4()` 不是原子的，分成 3 步：创建对象、调用构造、给静态变量赋值，其中后两步可能被指令重排序优化，变成先赋值、再调用构造
+* 如果线程1 先执行了赋值，线程2 执行到第一个 `INSTANCE == null` 时发现 INSTANCE 已经不为 null，此时就会返回一个未完全构造的对象
+
+
+### 静态内部类懒汉式
+```java
+public class Singleton5 implements Serializable {
+    private Singleton5() {
+        System.out.println("private Singleton5()");
+    }
+
+    private static class Holder {
+        static Singleton5 INSTANCE = new Singleton5();
+    }
+
+    public static Singleton5 getInstance() {
+        return Holder.INSTANCE;
+    }
+
+    public static void otherMethod() {
+        System.out.println("otherMethod()");
+    }
+}
+```
 

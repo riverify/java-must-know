@@ -5,6 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17652ce0-9765-4029-913d-8abef195669a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_12_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_12_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_12_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjdk_jol_jol_core_0_15.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_3_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_3_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_3_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_3_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_3_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_3_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chapter_1_basics/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chapter_1_basics/src/com/riverify/singleton/Sex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chapter_1_basics/src/com/riverify/singleton/Singleton1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chapter_1_basics/src/com/riverify/singleton/Singleton2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chapter_1_basics/src/com/riverify/singleton/Singleton3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chapter_1_basics/src/com/riverify/singleton/Singleton4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chapter_1_basics/src/com/riverify/singleton/Singleton5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chapter_1_basics/src/com/riverify/singleton/TestSingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter_1_basics/chapter_1_basics.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter_1_basics/chapter_1_basics.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chapter_1_basics/notes/basics.md" beforeDir="false" afterPath="$PROJECT_DIR$/chapter_1_basics/notes/basics.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,32 +55,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/rivor/code/java/IdeaProjects/java-must-know/chapter_1_basics/notes/img&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "corretto-17",
+    "last_opened_file_path": "C:/Users/rivor/code/java/IdeaProjects/java-must-know/chapter_1_basics/src/com/riverify/singleton",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\src\com\riverify\singleton" />
+      <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics" />
       <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\notes\img" />
       <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\src\com\riverify\hash" />
       <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\src\com\riverify\list" />
-      <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\notes" />
-      <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\src\animation" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\notes" />
@@ -66,7 +91,7 @@
       <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_1_basics\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BinarySearch">
+  <component name="RunManager" selected="Application.TestSingleton">
     <configuration name="BinarySearch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.riverify.binary_search.BinarySearch" />
       <module name="chapter_1_basics" />
@@ -106,12 +131,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QuickSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.riverify.sort.quick_sort.QuickSort" />
+    <configuration name="TestArrayList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.riverify.list.TestArrayList" />
       <module name="chapter_1_basics" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.riverify.sort.quick_sort.*" />
+          <option name="PATTERN" value="com.riverify.list.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -119,12 +144,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestArrayList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.riverify.list.TestArrayList" />
+    <configuration name="TestSingleton" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.riverify.singleton.TestSingleton" />
       <module name="chapter_1_basics" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.riverify.list.*" />
+          <option name="PATTERN" value="com.riverify.singleton.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -147,11 +172,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestSingleton" />
         <item itemvalue="Application.BinarySearch" />
         <item itemvalue="Application.FailFastVsFailSafe" />
         <item itemvalue="Application.FailFastVsFailSafe (1)" />
         <item itemvalue="Application.TestArrayList" />
-        <item itemvalue="Application.QuickSort" />
       </list>
     </recent_temporary>
   </component>
@@ -173,7 +198,8 @@
       <workItem from="1678608664435" duration="154000" />
       <workItem from="1678620359827" duration="1350000" />
       <workItem from="1678621733488" duration="6194000" />
-      <workItem from="1678669184803" duration="657000" />
+      <workItem from="1678669184803" duration="1432000" />
+      <workItem from="1678690216948" duration="6683000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore">
       <created>1678416753728</created>
@@ -329,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678669776746</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="更新图片地址">
+      <created>1678669898862</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1678669898862</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
