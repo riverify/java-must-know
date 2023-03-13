@@ -6,11 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="chapter_2_concurrent" />
         <module name="chapter_1_basics" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="chapter_1_basics" target="16" />
-    </bytecodeTargetLevel>
   </component>
 </project>

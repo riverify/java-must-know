@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/chapter_1_basics/chapter_1_basics.iml" filepath="$PROJECT_DIR$/chapter_1_basics/chapter_1_basics.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-must-know.iml" filepath="$PROJECT_DIR$/java-must-know.iml" />
     </modules>
   </component>
