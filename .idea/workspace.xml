@@ -5,30 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17652ce0-9765-4029-913d-8abef195669a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_12_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_12_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_12_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjdk_jol_jol_core_0_15.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_3_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_3_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_3_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_3_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_3_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_3_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_1_basics/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_1_basics/src/com/riverify/singleton/Sex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_1_basics/src/com/riverify/singleton/Singleton1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_1_basics/src/com/riverify/singleton/Singleton2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_1_basics/src/com/riverify/singleton/Singleton3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_1_basics/src/com/riverify/singleton/Singleton4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_1_basics/src/com/riverify/singleton/Singleton5.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_1_basics/src/com/riverify/singleton/TestSingleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter_1_basics/chapter_1_basics.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter_1_basics/chapter_1_basics.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chapter_1_basics/notes/basics.md" beforeDir="false" afterPath="$PROJECT_DIR$/chapter_1_basics/notes/basics.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -199,7 +176,7 @@
       <workItem from="1678620359827" duration="1350000" />
       <workItem from="1678621733488" duration="6194000" />
       <workItem from="1678669184803" duration="1432000" />
-      <workItem from="1678690216948" duration="6683000" />
+      <workItem from="1678690216948" duration="7531000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore">
       <created>1678416753728</created>
@@ -362,7 +339,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678669898862</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="单例模式">
+      <created>1678696955123</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1678696955123</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +369,8 @@
     <MESSAGE value="LICENSE" />
     <MESSAGE value="hashmap更新" />
     <MESSAGE value="更新图片地址" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新图片地址" />
+    <MESSAGE value="单例模式" />
+    <option name="LAST_COMMIT_MESSAGE" value="单例模式" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
