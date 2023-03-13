@@ -24,21 +24,21 @@
 
 ```java
 public static int binarySearch(int[] a, int t) {
-    int l = 0, r = a.length - 1;
-    int m;
+        int l = 0, r = a.length - 1;
+        int m;
 
-    while (l <= r) {
+        while (l <= r) {
         m = (l + r) / 2;
         if (a[m] == t) {
-            return m;
+        return m;
         } else if (a[m] > t) {
-            r = m - 1;
+        r = m - 1;
         } else if (a[m] < t) {
-            l = m + 1;
+        l = m + 1;
         }
-    }
-    return -1;
-}
+        }
+        return -1;
+        }
 ```
 
 ### 解决整数溢出问题
@@ -46,11 +46,11 @@ public static int binarySearch(int[] a, int t) {
 当 `L + R` 大于整数能存储的最大值的时候，便产生了整数溢出问题。
 对于此问题，主要问题出现在`( L + R ) / 2`，我们可以对此表达式在数学层面做出改进，如：
 
-`( L + R ) / 2` 
+`( L + R ) / 2`
 
-⇒ `L / 2 + R / 2` 
+⇒ `L / 2 + R / 2`
 
-⇒ `L + ( - L / 2 + R / 2 )` 
+⇒ `L + ( - L / 2 + R / 2 )`
 
 ⇒ **`L + ( R - L ) / 2`**
 
@@ -157,24 +157,24 @@ public class BubbleSort {
 
 ```java
 public static void bubble(int[] a) {
-    for (int i = 0; i < a.length - 1; i++) {
+        for (int i = 0; i < a.length - 1; i++) {
         boolean isSwapped = false;   // 第二步优化 是否发生了交换
         for (int j = 0; j < a.length - 1 - i; j++) {    // 第一步优化 j < a.length - 1 ==> j < a.length - 1 - i
-            System.out.println("发生比较");
-            if (a[j] > a[j + 1]) {
-                int temp = a[j];
-                a[j] = a[j + 1];
-                a[j + 1] = temp;
-                isSwapped = true;
-            }
+        System.out.println("发生比较");
+        if (a[j] > a[j + 1]) {
+        int temp = a[j];
+        a[j] = a[j + 1];
+        a[j + 1] = temp;
+        isSwapped = true;
+        }
         }
         // 若没有发生交换，直接退出外层循环，结束排序
         if (!isSwapped) {
-            break;
+        break;
         }
         System.out.println("第" + (i + 1) + "轮：" + Arrays.toString(a));
-    }
-}
+        }
+        }
 ```
 
 但这仍有优化空间，目前为止，冒泡排序的思路都是每次外层循环仅仅将一个数据“沉”入最后，即使有些时候会碰巧满足多个数据也正确地沉到了合适的地方，
@@ -186,45 +186,45 @@ public static void bubble(int[] a) {
 
 ```java
 public static void bubble2(int[] a) {
-    int n = a.length - 1;   // 内部第一次循环需要完全循环
-    for (int i = 0; i < a.length - 1; i++) {
+        int n = a.length - 1;   // 内部第一次循环需要完全循环
+        for (int i = 0; i < a.length - 1; i++) {
         int last = 0;   // 最后一次发生交换的索引位置
         for (int j = 0; j < n; j++) {
-            System.out.println("发生比较");
-            if (a[j] > a[j + 1]) {
-                int temp = a[j];
-                a[j] = a[j + 1];
-                a[j + 1] = temp;
-                last = j;   // 每次只要if判断之后，说明发生了交换，更新这个last
-            }
+        System.out.println("发生比较");
+        if (a[j] > a[j + 1]) {
+        int temp = a[j];
+        a[j] = a[j + 1];
+        a[j + 1] = temp;
+        last = j;   // 每次只要if判断之后，说明发生了交换，更新这个last
+        }
         }
         n = last;   // 一轮循环结束，last之后的数已经确保是排序的了，故下次循环的条件为截至到last索引的位置
         if (n == 0) {   // 若没有发生交换，直接退出外层循环，结束排序
-            break;
+        break;
         }
         System.out.println("第" + (i + 1) + "轮：" + Arrays.toString(a));
-    }
-}
+        }
+        }
 ```
 
 对此进一步优化之后，**代码最终实现如下**：
 
 ```java
 public static void bubble_final(int[] a) {
-    int n = a.length - 1;
-    while (n > 0) {
+        int n = a.length - 1;
+        while (n > 0) {
         int last = 0;
         for (int j = 0; j < n; j++) {
-            if (a[j] > a[j + 1]) {
-                int temp = a[j];
-                a[j] = a[j + 1];
-                a[j + 1] = temp;
-                last = j; // update last swapped index
-            }
+        if (a[j] > a[j + 1]) {
+        int temp = a[j];
+        a[j] = a[j + 1];
+        a[j + 1] = temp;
+        last = j; // update last swapped index
+        }
         }
         n = last;
-    }
-}
+        }
+        }
 ```
 
 ## 选择排序
@@ -242,22 +242,22 @@ public static void bubble_final(int[] a) {
 
 ```java
 public static void selection(int[] a) {
-    for (int i = 0; i < a.length - 1; i++) {
+        for (int i = 0; i < a.length - 1; i++) {
         // s代表最小的元素索引
         int s = i;
         for (int j = s + 1; j < a.length; j++) {
-            if (a[s] > a[j]) {
-                s = j;
-            }
+        if (a[s] > a[j]) {
+        s = j;
+        }
         }
         if (s != i) {
-            int temp = a[i];
-            a[i] = a[s];
-            a[s] = temp;
+        int temp = a[i];
+        a[i] = a[s];
+        a[s] = temp;
         }
         System.out.println("第" + (i + 1) + "轮：" + Arrays.toString(a));
-    }
-}
+        }
+        }
 ```
 
 以上代码为了减少交换次数，每一轮都先找出最小的索引，在每一轮可以先找最小的索引，在每一轮循环结束后再交换元素。
@@ -410,40 +410,40 @@ public class InsertSort {
 **双边循环快排的实现代码**
 ```java
 public static int paratition2(int[] a, int l, int h) {
-    int pv = a[l];
-    int i = l;
-    int j = h;
-    // 只要i小于j，循环一直进行
-    while (i < j) {
+        int pv = a[l];
+        int i = l;
+        int j = h;
+        // 只要i小于j，循环一直进行
+        while (i < j) {
         // j从右找比pv小的，当j停下的时候，指向的数是比基准点pv小的值
         while (i < j && a[j] > pv) {
-            j--;
+        j--;
         }
         // i从左找比pv大的，当i停下的时候，指向的数是比基准点pv大的值
         while (i < j && a[i] <= pv) {
-            i++;
+        i++;
         }
         // 交换i，j所指向的数
         int temp = a[i];
         a[i] = a[j];
         a[j] = temp;
-    }
-    // 退出while循环的时候，i和j已经相等了，此时基准点与i或者j交换位置
-    int temp = a[i];
-    a[i] = a[l];
-    a[l] = temp;
+        }
+        // 退出while循环的时候，i和j已经相等了，此时基准点与i或者j交换位置
+        int temp = a[i];
+        a[i] = a[l];
+        a[l] = temp;
 
-    System.out.println(Arrays.toString(a) + ", i = " + i + ", j = " + j);
+        System.out.println(Arrays.toString(a) + ", i = " + i + ", j = " + j);
 
-    return i;
-}
+        return i;
+        }
 ```
 以上双边循环快排代码有几个需要注意的点：
 1. 在对`i`从左找比`pv`大的数的时候，其循环条件为`a[i] <= pv`，等于号是因为在第一次循环时，`a[i]`一定等于`pv`，若不加等于的条件，会直接离开循环；
 2. 内层循环一定要加`i < j`的判断，不加判断会导致内层循环对`i`或`j`的自增/减会出现`i`大于`j`的情况；
 3. 内层的循环一定要从`j`的自减开始。仔细思考，因为当以`i`找到比`pv`大的值结束内部第一个循环时，会让`i`**率先停留在一个大于`pv`的数**上，
-之后`j`开始从右向左寻找比`pv`小的值的时候，**最多只能停留在和`i`重合**的位置上，此时`l`与`i`或`j`所指向的数调换位置，
-会把`i`或`j`指向的这个大于`pv`的置换到基准点，这就导致了在该段数组中最左侧出现了一个大于`pv`的数，使得排序发生错乱。
+   之后`j`开始从右向左寻找比`pv`小的值的时候，**最多只能停留在和`i`重合**的位置上，此时`l`与`i`或`j`所指向的数调换位置，
+   会把`i`或`j`指向的这个大于`pv`的置换到基准点，这就导致了在该段数组中最左侧出现了一个大于`pv`的数，使得排序发生错乱。
 
 ### 快速排序的特点
 - 平均时间复杂度为 O(nlog<font size=1>2</font> n)，最坏时间复杂度为 O(n^2)
@@ -469,16 +469,16 @@ public static int paratition2(int[] a, int l, int h) {
 * `ArrayList` 是 `fail-fast` 的典型代表，遍历的同时不能修改，尽快失败
 ```java
 private static void failFast() {
-    ArrayList<Student> list = new ArrayList<>();
-    list.add(new Student("A"));
-    list.add(new Student("B"));
-    list.add(new Student("C"));
-    list.add(new Student("D"));
-    for (Student student : list) {
+        ArrayList<Student> list = new ArrayList<>();
+        list.add(new Student("A"));
+        list.add(new Student("B"));
+        list.add(new Student("C"));
+        list.add(new Student("D"));
+        for (Student student : list) {
         System.out.println(student);
-    }
-    System.out.println(list);
-}
+        }
+        System.out.println(list);
+        }
 ```
 > 当遍历list合集的时候，假设遍历到`student.name.equals("B")`时，在另一个线程对该集合执行`add(new Student("E"))`操作，程序便会发生异常:
 ```
@@ -494,16 +494,16 @@ Exception in thread "main" java.util.ConcurrentModificationException
 * `CopyOnWriteArrayList` 是 `fail-safe` 的典型代表，遍历的同时可以修改，原理是读写分离
 ```java
 private static void failSafe() {
-    CopyOnWriteArrayList<Student> list = new CopyOnWriteArrayList<>();
-    list.add(new Student("A"));
-    list.add(new Student("B"));
-    list.add(new Student("C"));
-    list.add(new Student("D"));
-    for (Student student : list) {
+        CopyOnWriteArrayList<Student> list = new CopyOnWriteArrayList<>();
+        list.add(new Student("A"));
+        list.add(new Student("B"));
+        list.add(new Student("C"));
+        list.add(new Student("D"));
+        for (Student student : list) {
         System.out.println(student);
-    }
-    System.out.println(list);
-}
+        }
+        System.out.println(list);
+        }
 ```
 > 需要注意的是，这会失去一致性，遍历的结果为修改前的结果
 ```
@@ -525,17 +525,17 @@ protected transient int modCount = 0;
 每次对集合长度的改变（如`add()`），都会调用`updateSizeAndModCount(int sizeChange)`这个方法，这个方法负责更新`modCount`。
 ```java
 public boolean add(E e) {
-    modCount++;
-    add(e, elementData, size);
-    return true;
-}
+        modCount++;
+        add(e, elementData, size);
+        return true;
+        }
 ```
 
 同时在`ArrayList`内部有一个`Itr`的内部类，该内部类实现了`Iterator`接口，使用增强 for 循环的时候，会在首次循环创建这个`Itr`对象：
 ```java
 public Iterator<E> iterator() {
-    return new Itr();
-}
+        return new Itr();
+        }
 ```
 在`Itr`的内部，也存在一个类似`modCount`的成员变量，它的初始值就等于`modCount`，用于表示当迭代刚刚开始时，集合被修改的次数。
 每次执行迭代器执行`next()`方法的时候，都会先调用`checkForComodification()`方法。
@@ -546,7 +546,7 @@ private class Itr implements Iterator<E> {
     int expectedModCount = modCount;
     
     ...
-    
+
     public E next() {
         checkForComodification();
         int i = cursor;
@@ -560,16 +560,16 @@ private class Itr implements Iterator<E> {
     }
     
     ...
-    
+
 }
 ```
 
 > `checkForComodification()` 方法：
 ```java
 final void checkForComodification() {
-    if (modCount != expectedModCount)
+        if (modCount != expectedModCount)
         throw new ConcurrentModificationException();
-}
+        }
 ```
 此时，若在迭代过程中，集合被修改了，那么`modCount`一定会发生变化，此时`modCount`和`expectedModCount`就不相等，
 就会抛出`ConcurrentModificationException`异常，实现了`fail-fast`的机制。
@@ -582,23 +582,23 @@ final void checkForComodification() {
 所携带的参数分别是`getArray()`和 `0`，其中`getArray()`方法返回的是一个`Object[]`型的数组，即当前集合的快照、当前集合的一个副本。
 ```java
 public Iterator<E> iterator() {
-    return new COWIterator<E>(getArray(), 0);
-}
+        return new COWIterator<E>(getArray(), 0);
+        }
 ```
 在`COWIterator`内部，无参构造函数中，会将当前集合的快照赋值给`snapshot`，并将`cursor`初始化为`0`。
 ```java
 COWIterator(Object[] es, int initialCursor) {
-    cursor = initialCursor;
-    snapshot = es;
-}
+        cursor = initialCursor;
+        snapshot = es;
+        }
 ```
 在`COWIterator`内部，`next()`方法中，会先判断`snapshot`是否为空，若为空，则抛出`NoSuchElementException`异常。
 ```java
 public E next() {
-    if (! hasNext())
+        if (! hasNext())
         throw new NoSuchElementException();
-    return (E) snapshot[cursor++];
-}
+        return (E) snapshot[cursor++];
+        }
 ```
 由此可见，`CopyOnWriteArrayList`的迭代过程是通过遍历`snapshot`来实现的，而`snapshot`是在迭代开始的时候就已经确定了，所以在迭代过程中，
 集合被修改了，也不会影响到`snapshot`，所以也就不会抛出`ConcurrentModificationException`异常，实现了`fail-safe`的机制。
@@ -607,15 +607,15 @@ public E next() {
 之后便会通过`Arrays.copyOf()`方法，将`snapshot`数组复制一份，然后将新元素添加到新数组的末尾，最后使用`setArray()`方法，记录新数组。
 ```java
 public boolean add(E e) {
-    synchronized (lock) {
+synchronized (lock) {
         Object[] es = getArray();
         int len = es.length;
         es = Arrays.copyOf(es, len + 1);
         es[len] = e;
         setArray(es);
         return true;
-    }
-}
+        }
+        }
 ```
 
 
@@ -729,51 +729,51 @@ public boolean add(E e) {
 
 ```java
 void transfer(Entry[] newTable, boolean rehash) {
-    int newCapacity = newTable.length;
-    for (Entry<K,V> e : table) {
+        int newCapacity = newTable.length;
+        for (Entry<K,V> e : table) {
         while(null != e) {
-            Entry<K,V> next = e.next;
-            if (rehash) {
-                e.hash = null == e.key ? 0 : hash(e.key);
-            }
-            int i = indexFor(e.hash, newCapacity);
-            e.next = newTable[i];
-            newTable[i] = e;
-            e = next;
+        Entry<K,V> next = e.next;
+        if (rehash) {
+        e.hash = null == e.key ? 0 : hash(e.key);
         }
-    }
-}
+        int i = indexFor(e.hash, newCapacity);
+        e.next = newTable[i];
+        newTable[i] = e;
+        e = next;
+        }
+        }
+        }
 ```
 
 * e 和 next 都是局部变量，用来指向当前节点和下一个节点；
 * 线程1（绿色）的临时变量 e 和 next 刚引用了这俩节点，还未来得及移动节点，发生了线程切换，由线程2（蓝色）完成扩容和迁移。
 
-![image-20210831084325075](img/image-20210831084325075.png)
+![image-20210831084325075](https://github.com/riverify/java-must-know/blob/main/chapter_1_basics/notes/img/image-20210831084325075.png?raw=true)
 
 * 线程2 扩容完成，由于头插法，链表顺序颠倒。但线程1 的临时变量 e 和 next 还引用了这俩节点，还要再来一遍迁移。
 
-![image-20210831084723383](img/image-20210831084723383.png)
+![image-20210831084723383](https://github.com/riverify/java-must-know/blob/main/chapter_1_basics/notes/img/image-20210831084723383.png?raw=true)
 
 * 第一次循环
     * 循环接着线程切换前运行，注意此时 e 指向的是节点 a，next 指向的是节点 b；
     * e 头插 a 节点，注意图中画了两份 a 节点，但事实上只有一个（为了不让箭头特别乱画了两份）；
     * 当循环结束是 e 会指向 next 也就是 b 节点。
 
-![image-20210831084855348](img/image-20210831084855348.png)
+![image-20210831084855348](https://github.com/riverify/java-must-know/blob/main/chapter_1_basics/notes/img/image-20210831084855348.png?raw=true)
 
 * 第二次循环
     * next 指向了节点 a；
     * e 头插节点 b；
     * 当循环结束时，e 指向 next 也就是节点 a。
 
-![image-20210831085329449](img/image-20210831085329449.png)
+![image-20210831085329449](https://github.com/riverify/java-must-know/blob/main/chapter_1_basics/notes/img/image-20210831085329449.png?raw=true)
 
 * 第三次循环
     * next 指向了 null；
     * e 头插节点 a，**a 的 next 指向了 b**（之前 a.next 一直是 null），b 的 next 指向 a，死链已成；
     * 当循环结束时，e 指向 next 也就是 null，因此第四次循环时会正常退出。
 
-![image-20210831085543224](img/image-20210831085543224.png)
+![image-20210831085543224](https://github.com/riverify/java-must-know/blob/main/chapter_1_basics/notes/img/image-20210831085543224.png?raw=true)
 
 
 
@@ -782,10 +782,10 @@ void transfer(Entry[] newTable, boolean rehash) {
 **key 的设计要求**
 
 1. HashMap 的 key 可以为 null，但 Map 的其他实现则不然；
-2. 作为 key 的对象，必须实现 hashCode 和 equals，并且 key 的内容不能修改（不可变）；
-3. key 的 hashCode 应该有良好的散列性。
+2. 作为 key 的对象，必须实现 `hashCode` 和 `equals`，并且 key 的内容不能修改（不可变）；
+3. key 的 `hashCode` 应该有良好的散列性。
 
-如果 key 可变，例如修改了 age 会导致再次查询时查询不到
+以下代码，如果 key 可变，例如修改了 age 会导致再次查询时查询不到
 
 ```java
 public class HashMapMutableKey {

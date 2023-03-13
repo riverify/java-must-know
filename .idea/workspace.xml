@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17652ce0-9765-4029-913d-8abef195669a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter_1_basics/notes/basics.md" beforeDir="false" afterPath="$PROJECT_DIR$/chapter_1_basics/notes/basics.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +174,7 @@
       <workItem from="1678608664435" duration="154000" />
       <workItem from="1678620359827" duration="1350000" />
       <workItem from="1678621733488" duration="6194000" />
-      <workItem from="1678669184803" duration="513000" />
+      <workItem from="1678669184803" duration="570000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore">
       <created>1678416753728</created>
@@ -316,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678627730068</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="更新图片地址">
+      <created>1678669720088</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1678669720088</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,7 +345,8 @@
     <MESSAGE value="create README.md" />
     <MESSAGE value="LICENSE" />
     <MESSAGE value="hashmap更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="hashmap更新" />
+    <MESSAGE value="更新图片地址" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新图片地址" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

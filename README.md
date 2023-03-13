@@ -157,24 +157,24 @@ public class BubbleSort {
 
 ```java
 public static void bubble(int[] a) {
-    for (int i = 0; i < a.length - 1; i++) {
+        for (int i = 0; i < a.length - 1; i++) {
         boolean isSwapped = false;   // 第二步优化 是否发生了交换
         for (int j = 0; j < a.length - 1 - i; j++) {    // 第一步优化 j < a.length - 1 ==> j < a.length - 1 - i
-            System.out.println("发生比较");
-            if (a[j] > a[j + 1]) {
-                int temp = a[j];
-                a[j] = a[j + 1];
-                a[j + 1] = temp;
-                isSwapped = true;
-            }
+        System.out.println("发生比较");
+        if (a[j] > a[j + 1]) {
+        int temp = a[j];
+        a[j] = a[j + 1];
+        a[j + 1] = temp;
+        isSwapped = true;
+        }
         }
         // 若没有发生交换，直接退出外层循环，结束排序
         if (!isSwapped) {
-            break;
+        break;
         }
         System.out.println("第" + (i + 1) + "轮：" + Arrays.toString(a));
-    }
-}
+        }
+        }
 ```
 
 但这仍有优化空间，目前为止，冒泡排序的思路都是每次外层循环仅仅将一个数据“沉”入最后，即使有些时候会碰巧满足多个数据也正确地沉到了合适的地方，
@@ -186,45 +186,45 @@ public static void bubble(int[] a) {
 
 ```java
 public static void bubble2(int[] a) {
-    int n = a.length - 1;   // 内部第一次循环需要完全循环
-    for (int i = 0; i < a.length - 1; i++) {
+        int n = a.length - 1;   // 内部第一次循环需要完全循环
+        for (int i = 0; i < a.length - 1; i++) {
         int last = 0;   // 最后一次发生交换的索引位置
         for (int j = 0; j < n; j++) {
-            System.out.println("发生比较");
-            if (a[j] > a[j + 1]) {
-                int temp = a[j];
-                a[j] = a[j + 1];
-                a[j + 1] = temp;
-                last = j;   // 每次只要if判断之后，说明发生了交换，更新这个last
-            }
+        System.out.println("发生比较");
+        if (a[j] > a[j + 1]) {
+        int temp = a[j];
+        a[j] = a[j + 1];
+        a[j + 1] = temp;
+        last = j;   // 每次只要if判断之后，说明发生了交换，更新这个last
+        }
         }
         n = last;   // 一轮循环结束，last之后的数已经确保是排序的了，故下次循环的条件为截至到last索引的位置
         if (n == 0) {   // 若没有发生交换，直接退出外层循环，结束排序
-            break;
+        break;
         }
         System.out.println("第" + (i + 1) + "轮：" + Arrays.toString(a));
-    }
-}
+        }
+        }
 ```
 
 对此进一步优化之后，**代码最终实现如下**：
 
 ```java
 public static void bubble_final(int[] a) {
-    int n = a.length - 1;
-    while (n > 0) {
+        int n = a.length - 1;
+        while (n > 0) {
         int last = 0;
         for (int j = 0; j < n; j++) {
-            if (a[j] > a[j + 1]) {
-                int temp = a[j];
-                a[j] = a[j + 1];
-                a[j + 1] = temp;
-                last = j; // update last swapped index
-            }
+        if (a[j] > a[j + 1]) {
+        int temp = a[j];
+        a[j] = a[j + 1];
+        a[j + 1] = temp;
+        last = j; // update last swapped index
+        }
         }
         n = last;
-    }
-}
+        }
+        }
 ```
 
 ## 选择排序
@@ -242,22 +242,22 @@ public static void bubble_final(int[] a) {
 
 ```java
 public static void selection(int[] a) {
-    for (int i = 0; i < a.length - 1; i++) {
+        for (int i = 0; i < a.length - 1; i++) {
         // s代表最小的元素索引
         int s = i;
         for (int j = s + 1; j < a.length; j++) {
-            if (a[s] > a[j]) {
-                s = j;
-            }
+        if (a[s] > a[j]) {
+        s = j;
+        }
         }
         if (s != i) {
-            int temp = a[i];
-            a[i] = a[s];
-            a[s] = temp;
+        int temp = a[i];
+        a[i] = a[s];
+        a[s] = temp;
         }
         System.out.println("第" + (i + 1) + "轮：" + Arrays.toString(a));
-    }
-}
+        }
+        }
 ```
 
 以上代码为了减少交换次数，每一轮都先找出最小的索引，在每一轮可以先找最小的索引，在每一轮循环结束后再交换元素。
@@ -410,33 +410,33 @@ public class InsertSort {
 **双边循环快排的实现代码**
 ```java
 public static int paratition2(int[] a, int l, int h) {
-    int pv = a[l];
-    int i = l;
-    int j = h;
-    // 只要i小于j，循环一直进行
-    while (i < j) {
+        int pv = a[l];
+        int i = l;
+        int j = h;
+        // 只要i小于j，循环一直进行
+        while (i < j) {
         // j从右找比pv小的，当j停下的时候，指向的数是比基准点pv小的值
         while (i < j && a[j] > pv) {
-            j--;
+        j--;
         }
         // i从左找比pv大的，当i停下的时候，指向的数是比基准点pv大的值
         while (i < j && a[i] <= pv) {
-            i++;
+        i++;
         }
         // 交换i，j所指向的数
         int temp = a[i];
         a[i] = a[j];
         a[j] = temp;
-    }
-    // 退出while循环的时候，i和j已经相等了，此时基准点与i或者j交换位置
-    int temp = a[i];
-    a[i] = a[l];
-    a[l] = temp;
+        }
+        // 退出while循环的时候，i和j已经相等了，此时基准点与i或者j交换位置
+        int temp = a[i];
+        a[i] = a[l];
+        a[l] = temp;
 
-    System.out.println(Arrays.toString(a) + ", i = " + i + ", j = " + j);
+        System.out.println(Arrays.toString(a) + ", i = " + i + ", j = " + j);
 
-    return i;
-}
+        return i;
+        }
 ```
 以上双边循环快排代码有几个需要注意的点：
 1. 在对`i`从左找比`pv`大的数的时候，其循环条件为`a[i] <= pv`，等于号是因为在第一次循环时，`a[i]`一定等于`pv`，若不加等于的条件，会直接离开循环；
@@ -469,16 +469,16 @@ public static int paratition2(int[] a, int l, int h) {
 * `ArrayList` 是 `fail-fast` 的典型代表，遍历的同时不能修改，尽快失败
 ```java
 private static void failFast() {
-    ArrayList<Student> list = new ArrayList<>();
-    list.add(new Student("A"));
-    list.add(new Student("B"));
-    list.add(new Student("C"));
-    list.add(new Student("D"));
-    for (Student student : list) {
+        ArrayList<Student> list = new ArrayList<>();
+        list.add(new Student("A"));
+        list.add(new Student("B"));
+        list.add(new Student("C"));
+        list.add(new Student("D"));
+        for (Student student : list) {
         System.out.println(student);
-    }
-    System.out.println(list);
-}
+        }
+        System.out.println(list);
+        }
 ```
 > 当遍历list合集的时候，假设遍历到`student.name.equals("B")`时，在另一个线程对该集合执行`add(new Student("E"))`操作，程序便会发生异常:
 ```
@@ -494,16 +494,16 @@ Exception in thread "main" java.util.ConcurrentModificationException
 * `CopyOnWriteArrayList` 是 `fail-safe` 的典型代表，遍历的同时可以修改，原理是读写分离
 ```java
 private static void failSafe() {
-    CopyOnWriteArrayList<Student> list = new CopyOnWriteArrayList<>();
-    list.add(new Student("A"));
-    list.add(new Student("B"));
-    list.add(new Student("C"));
-    list.add(new Student("D"));
-    for (Student student : list) {
+        CopyOnWriteArrayList<Student> list = new CopyOnWriteArrayList<>();
+        list.add(new Student("A"));
+        list.add(new Student("B"));
+        list.add(new Student("C"));
+        list.add(new Student("D"));
+        for (Student student : list) {
         System.out.println(student);
-    }
-    System.out.println(list);
-}
+        }
+        System.out.println(list);
+        }
 ```
 > 需要注意的是，这会失去一致性，遍历的结果为修改前的结果
 ```
@@ -525,17 +525,17 @@ protected transient int modCount = 0;
 每次对集合长度的改变（如`add()`），都会调用`updateSizeAndModCount(int sizeChange)`这个方法，这个方法负责更新`modCount`。
 ```java
 public boolean add(E e) {
-    modCount++;
-    add(e, elementData, size);
-    return true;
-}
+        modCount++;
+        add(e, elementData, size);
+        return true;
+        }
 ```
 
 同时在`ArrayList`内部有一个`Itr`的内部类，该内部类实现了`Iterator`接口，使用增强 for 循环的时候，会在首次循环创建这个`Itr`对象：
 ```java
 public Iterator<E> iterator() {
-    return new Itr();
-}
+        return new Itr();
+        }
 ```
 在`Itr`的内部，也存在一个类似`modCount`的成员变量，它的初始值就等于`modCount`，用于表示当迭代刚刚开始时，集合被修改的次数。
 每次执行迭代器执行`next()`方法的时候，都会先调用`checkForComodification()`方法。
@@ -546,7 +546,7 @@ private class Itr implements Iterator<E> {
     int expectedModCount = modCount;
     
     ...
-    
+
     public E next() {
         checkForComodification();
         int i = cursor;
@@ -560,16 +560,16 @@ private class Itr implements Iterator<E> {
     }
     
     ...
-    
+
 }
 ```
 
 > `checkForComodification()` 方法：
 ```java
 final void checkForComodification() {
-    if (modCount != expectedModCount)
+        if (modCount != expectedModCount)
         throw new ConcurrentModificationException();
-}
+        }
 ```
 此时，若在迭代过程中，集合被修改了，那么`modCount`一定会发生变化，此时`modCount`和`expectedModCount`就不相等，
 就会抛出`ConcurrentModificationException`异常，实现了`fail-fast`的机制。
@@ -582,23 +582,23 @@ final void checkForComodification() {
 所携带的参数分别是`getArray()`和 `0`，其中`getArray()`方法返回的是一个`Object[]`型的数组，即当前集合的快照、当前集合的一个副本。
 ```java
 public Iterator<E> iterator() {
-    return new COWIterator<E>(getArray(), 0);
-}
+        return new COWIterator<E>(getArray(), 0);
+        }
 ```
 在`COWIterator`内部，无参构造函数中，会将当前集合的快照赋值给`snapshot`，并将`cursor`初始化为`0`。
 ```java
 COWIterator(Object[] es, int initialCursor) {
-    cursor = initialCursor;
-    snapshot = es;
-}
+        cursor = initialCursor;
+        snapshot = es;
+        }
 ```
 在`COWIterator`内部，`next()`方法中，会先判断`snapshot`是否为空，若为空，则抛出`NoSuchElementException`异常。
 ```java
 public E next() {
-    if (! hasNext())
+        if (! hasNext())
         throw new NoSuchElementException();
-    return (E) snapshot[cursor++];
-}
+        return (E) snapshot[cursor++];
+        }
 ```
 由此可见，`CopyOnWriteArrayList`的迭代过程是通过遍历`snapshot`来实现的，而`snapshot`是在迭代开始的时候就已经确定了，所以在迭代过程中，
 集合被修改了，也不会影响到`snapshot`，所以也就不会抛出`ConcurrentModificationException`异常，实现了`fail-safe`的机制。
@@ -607,15 +607,15 @@ public E next() {
 之后便会通过`Arrays.copyOf()`方法，将`snapshot`数组复制一份，然后将新元素添加到新数组的末尾，最后使用`setArray()`方法，记录新数组。
 ```java
 public boolean add(E e) {
-    synchronized (lock) {
+synchronized (lock) {
         Object[] es = getArray();
         int len = es.length;
         es = Arrays.copyOf(es, len + 1);
         es[len] = e;
         setArray(es);
         return true;
-    }
-}
+        }
+        }
 ```
 
 
@@ -729,20 +729,20 @@ public boolean add(E e) {
 
 ```java
 void transfer(Entry[] newTable, boolean rehash) {
-    int newCapacity = newTable.length;
-    for (Entry<K,V> e : table) {
+        int newCapacity = newTable.length;
+        for (Entry<K,V> e : table) {
         while(null != e) {
-            Entry<K,V> next = e.next;
-            if (rehash) {
-                e.hash = null == e.key ? 0 : hash(e.key);
-            }
-            int i = indexFor(e.hash, newCapacity);
-            e.next = newTable[i];
-            newTable[i] = e;
-            e = next;
+        Entry<K,V> next = e.next;
+        if (rehash) {
+        e.hash = null == e.key ? 0 : hash(e.key);
         }
-    }
-}
+        int i = indexFor(e.hash, newCapacity);
+        e.next = newTable[i];
+        newTable[i] = e;
+        e = next;
+        }
+        }
+        }
 ```
 
 * e 和 next 都是局部变量，用来指向当前节点和下一个节点；
