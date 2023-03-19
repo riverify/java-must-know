@@ -4,33 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17652ce0-9765-4029-913d-8abef195669a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/notes/concurrent.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/notes/img/image-20210831090722658.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/notes/img/image-20210831092652602.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/notes/img/image-20210831093204388.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/src/main/java/com/riverify/LoggerUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/src/main/java/com/riverify/SyncVsCas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/src/main/java/com/riverify/TestOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/src/main/java/com/riverify/TestReentrantLock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/src/main/java/com/riverify/TestThreadLocal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/src/main/java/com/riverify/TestThreadPoolExecutor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/src/main/java/com/riverify/TestThreadState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/src/main/java/com/riverify/WaitVsSleep.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/src/main/java/com/riverify/leetcode/T1114.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/src/main/java/com/riverify/leetcode/T1115.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/src/main/java/com/riverify/leetcode/T1116.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/src/main/java/com/riverify/leetcode/T1117.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/src/main/java/com/riverify/leetcode/T1195.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/src/main/java/com/riverify/leetcode/T1226.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/src/main/java/com/riverify/threadsafe/AddAndSubtract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/src/main/java/com/riverify/threadsafe/ForeverLoop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter_2_concurrent/src/main/java/com/riverify/threadsafe/Reordering.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter_1_basics/chapter_1_basics.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter_1_basics/chapter_1_basics.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter_2_concurrent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter_2_concurrent/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="17652ce0-9765-4029-913d-8abef195669a" name="Changes" comment="准备并发篇" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,27 +39,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "corretto-17",
-    "last_opened_file_path": "C:/Users/rivor/code/java/IdeaProjects/java-must-know/chapter_2_concurrent/src/main/java/com/riverify",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "7d6b2ccf78876a1ac6f546502c53d148",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rivor/code/java/IdeaProjects/java-must-know/chapter_2_concurrent/src/main/java/com/riverify&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;7d6b2ccf78876a1ac6f546502c53d148&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\rivor\code\java\IdeaProjects\java-must-know\chapter_2_concurrent\src\main\java\com\riverify" />
@@ -215,6 +189,7 @@
       <workItem from="1678793782315" duration="3039000" />
       <workItem from="1678846294262" duration="3000" />
       <workItem from="1678847022965" duration="46000" />
+      <workItem from="1678922755920" duration="651000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore">
       <created>1678416753728</created>
@@ -419,7 +394,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678699784156</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="准备并发篇">
+      <created>1678922805054</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1678922805054</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
